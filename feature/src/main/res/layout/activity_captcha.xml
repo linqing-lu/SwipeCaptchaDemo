@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.lulinqing.captchademo.feature.CaptchaActivity">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="28dp">
+
+            <com.example.lulinqing.captchademo.feature.SwipeCaptchaView
+                android:id="@+id/swipeCaptchaView"
+                android:layout_width="280dp"
+                android:layout_height="140dp"
+                android:background="@drawable/swipe_captcha_bg"
+                android:scaleType="centerCrop"
+                android:src="@drawable/swipe_captcha_2"
+                android:visibility="visible"
+                tools:captchaHeight="50dp"
+                tools:captchaWidth="50dp"/>
+
+            <RelativeLayout
+                android:id="@+id/captcha_verify_success"
+                android:layout_width="280dp"
+                android:layout_height="140dp"
+                android:background="@drawable/swipe_captcha_bg"
+                android:visibility="gone">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/captcha_success"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="11dp"
+                        android:text="验证成功"
+                        android:textColor="#323232"
+                        android:textSize="15sp"/>
+                </LinearLayout>
+            </RelativeLayout>
+        </RelativeLayout>
+
+        <SeekBar
+            android:id="@+id/dragBar"
+            android:layout_width="280dp"
+            android:layout_height="34dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="18dp"
+            android:background="@drawable/captcha_drag_bg"
+            android:progressDrawable="@drawable/captcha_drag_bg"
+            android:thumb="@drawable/thumb_normal"
+            android:thumbOffset="15dp"
+            android:visibility="visible"/>
+
+        <TextView
+            android:id="@+id/seek_bar_hint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="-28dp"
+            android:text="拖动滑块完成验证"
+            android:textColor="#aaaaaa"
+            android:textSize="16sp"/>
+        <Button
+            android:id="@+id/btn_finish"
+            android:layout_width="100dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="50dp"
+            android:layout_gravity="center"
+            android:text="返回"/>
+    </LinearLayout>
+</android.support.constraint.ConstraintLayout>
