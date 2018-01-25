@@ -63,6 +63,8 @@ public class SwipeCaptchaView extends ImageView {
     //用于绘制阴影的Paint
     private Paint mMaskShadowPaint;
     private Bitmap mMaskShadowBitmap;
+    //用于绘制边框
+    private Paint mBorderPaint;
     //滑块的位移
     private int mDragerOffset;
 
@@ -132,6 +134,11 @@ public class SwipeCaptchaView extends ImageView {
         mMaskShadowPaint.setTextSize(50);
         mMaskShadowPaint.setStyle(Paint.Style.FILL_AND_STROKE);*/
         mMaskShadowPaint.setMaskFilter(new BlurMaskFilter(20, BlurMaskFilter.Blur.SOLID));
+
+        mBorderPaint = new Paint(Paint.ANTI_ALIAS_FLAG | Paint.DITHER_FLAG);
+        mBorderPaint.setStyle(Paint.Style.STROKE);
+        mBorderPaint.setStrokeWidth(2);
+        mBorderPaint.setColor(0xffffffff);
 
         mCaptchaPath = new Path();
 
@@ -334,6 +341,7 @@ public class SwipeCaptchaView extends ImageView {
         //★考虑到scaleType等因素，要用Matrix对Bitmap进行缩放
         mCanvas.drawBitmap(mBitmap, getImageMatrix(), mMaskPaint);
         mMaskPaint.setXfermode(null);
+        mCanvas.drawPath(mask, mBorderPaint);
         return tempBitmap;
     }
 
